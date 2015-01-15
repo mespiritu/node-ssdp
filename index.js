@@ -349,6 +349,9 @@ SSDP.prototype.server = function (ip, portno) {
  * Advertise shutdown and close UDP socket.
  */
 SSDP.prototype.stop = function () {
+  if (this.sock == null)
+    return;
+
   this.advertise(false)
   this.advertise(false)
   this.sock.close()
